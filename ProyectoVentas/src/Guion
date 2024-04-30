@@ -1,0 +1,47 @@
+Proyecto POO: Gestión de ventas en una tienda de anime
+
+Descripción:
+
+Este proyecto consiste en desarrollar una aplicación de gestión de ventas para una tienda de anime.
+
+La aplicación permitirá al usuario:
+    Gestionar productos de anime:
+        -Agregar nuevos productos (mangas, figuras, ropa, etc.).
+        -Editar los detalles de los productos existentes (nombre, precio, stock, descripción, etc.).
+        -Eliminar productos.
+        -Consultar la información de los productos.
+
+    Realizar ventas:
+        -Agregar productos al carrito de compras.
+        -Eliminar productos del carrito de compras.
+        -Modificar la cantidad de productos en el carrito de compras.
+        -Calcular el total de la compra.
+        -Procesar el pago de la compra (efectivo, tarjeta de crédito, etc.).
+
+    Generar informes:
+        -Consultar las ventas realizadas.
+        -Generar informes de ventas por producto, por género, por autor, etc.
+
+Clases principales:
+
+    -ProductoAnime: Interfaz que define los atributos básicos de un producto de anime (nombre, precio, stock, descripción, género, autor, etc.).
+
+    -Manga: Clase concreta que hereda de la interfaz ProductoAnime y define los atributos y métodos específicos de un manga (número de páginas, tomo, etc.).
+
+    -Figura: Clase concreta que hereda de la interfaz ProductoAnime y define los atributos y métodos específicos de una figura (material, escala, fabricante, etc.).
+
+    -RopaAnime: Clase concreta que hereda de la interfaz ProductoAnime y define los atributos y métodos específicos de una prenda de ropa de anime (talla, material, diseño, etc.).
+
+    -Carrito: Clase que representa el carrito de compras del usuario. Permite agregar, eliminar, modificar y calcular el total de la compra.
+
+    -Venta: Clase que representa una venta realizada. Almacena información sobre los productos comprados, la forma de pago y el total de la venta.
+
+Patrones de diseño:
+
+    -Patrón de interfaz: La interfaz ProductoAnime define los atributos y métodos básicos que deben tener todos los productos de anime.
+    Las clases Manga, Figura y RopaAnime implementan esta interfaz para definir los atributos y métodos específicos de cada tipo de producto.
+
+    -Patrón de clase concreta: Las clases Manga, Figura y RopaAnime son clases concretas que implementan los detalles específicos de cada tipo de producto de anime.
+
+    -Patrón de singleton: La clase Carrito se implementa como un singleton para garantizar que solo haya una instancia de la misma en la aplicación.
+    Esto permite al usuario acceder al carrito de compras desde cualquier parte de la aplicación.
