@@ -2,12 +2,12 @@ package Clases;
 
 public abstract class Producto {
     protected String nombre;
-    protected int precio;
+    protected Double precio;
     protected int stock;
     protected String descripcion;
     protected String genero;
 
-    public Producto(String nombre, int precio, int stock, String descripcion, String genero) {
+    public Producto(String nombre, Double precio, int stock, String descripcion, String genero) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
@@ -22,10 +22,10 @@ public abstract class Producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio(){
+    public Double getPrecio(){
         return precio;
     }
-    public void setPrecio(int precio){
+    public void setPrecio(Double precio){
         this.precio = precio;
     }
 
@@ -44,12 +44,10 @@ public abstract class Producto {
         this.descripcion = descripcion;
     }
 
-    public String getGenero(){
+    public String getGenero() {
         return genero;
     }
-    public void setGenero(){
+    public void setGenero(String genero) {
         this.genero = genero;
     }
-
-
 }
