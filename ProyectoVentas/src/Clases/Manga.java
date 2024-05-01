@@ -1,8 +1,18 @@
 package Clases;
 
-public class Manga extends Producto {
+public class Ropa extends Producto{
+    public String tallas;
+
     //Constructor
-    public Manga(String nombre, int precio, int stock, String descripcion, String genero) {
+    public Ropa(String nombre, Double precio, int stock, String descripcion,String genero, String tallas) {
         super(nombre, precio, stock, descripcion, genero);
+        this.tallas = tallas;
+
+    }
+    public String getTallas() {
+        return tallas;
+    }
+    public void setTallas(String tallas) {
+        this.tallas = tallas;
     }
 }
