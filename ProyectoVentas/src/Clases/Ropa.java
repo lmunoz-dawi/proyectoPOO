@@ -1,6 +1,6 @@
 package Clases;
 
-public class Ropa extends Producto{
+public class Ropa extends Producto implements IProductoAnime{
     public String tallas;
 
     //Constructor
@@ -14,5 +14,11 @@ public class Ropa extends Producto{
     }
     public void setTallas(String tallas) {
         this.tallas = tallas;
+    }
+
+
+    @Override
+    public void calcularDescuento() {
+
     }
 }
