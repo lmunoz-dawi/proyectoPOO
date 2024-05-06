@@ -25,6 +25,9 @@ public class Carrito{
             System.out.println(producto.precio);
         }
     }
+    public void VaciarCarrito(){
+        productos.clear();
+    }
 
     public void MostrarPrecio(){
         Double precioTotal = 0.0;
