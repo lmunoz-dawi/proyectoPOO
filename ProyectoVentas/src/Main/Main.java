@@ -28,33 +28,57 @@ public class Main {
 
         //Menu para el usuario
         boolean salir = true;
-        do {
-            mostrarProductos(productosLista);
 
+        mostrarProductos(productosLista);
+        do {
+            System.out.println(" ");
             System.out.println("Presione 1 para AÑADIR un producto al carrito");
             System.out.println("Presione 2 para QUITAR un producto del carrito");
-            System.out.println("Presione 3 para VER EL PRECIO de un producto");
+            System.out.println("Presione 3 para VER EL PRECIO del producto");
             System.out.println("Presione 4 para MOSTRAR el carrito");
             System.out.println("Presione 5 para VACIAR el carrito");
             System.out.println("-1 para salir");
             int opcion = sc.nextInt();
 
-            switch(opcion) {
-                case 1:
-                    System.out.println("Escribe el id del producto a añadir");
-                    int idP = sc.nextInt();
-                    Producto productoID = (Producto) productosLista.get(idP);
-                    carrito.AgregarProducto(productoID);
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case -1:
-                    salir = false;
-
+            Producto productoID = null;
+            if(opcion == 1 || opcion == 2 || opcion == 3){
+                mostrarProductos(productosLista);
+                System.out.println(" ");
+                System.out.println("Escribe el ID del producto que te interesa");
+                int idP = sc.nextInt();
+                productoID = (Producto) productosLista.get(idP);
             }
 
+            switch(opcion) {
+                case 1:
+                    carrito.AgregarProducto(productoID);
+                    System.out.println("Has agregado el producto al carrito!");
+                    System.out.println(" ");
+                    break;
+                case 2:
+                    carrito.QuitarProducto(productoID);
+                    System.out.println("Has quitado el producto del carrito");
+                    System.out.println(" ");
+                    break;
+                case 3:
+                    System.out.print("El producto vale: ");
+                    System.out.print(productoID.getPrecio());
+                    System.out.println(" €");
+                    System.out.println(" ");
+                    break;
+                case 4:
+                    System.out.println("Estos son los productos de tu carrito: ");
+                    carrito.MostrarCarrito();
+                    System.out.println(" ");
+                    break;
+                case 5:
+                    carrito.VaciarCarrito();
+                    System.out.println("Has vaciado el carrito");
+                    System.out.println(" ");
+                    break;
+                case -1:
+                    salir = false;
+            }
         } while (salir);
     }
 
