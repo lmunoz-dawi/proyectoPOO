@@ -1,13 +1,11 @@
 package Clases;
 
-public abstract class Producto {
+public abstract class Producto implements Detalles {
     protected String nombre;
     protected Double precio;
     protected int stock;
     protected String descripcion;
     protected String genero;
-
-    private static double descuento = 1.0;
 
     public Producto(String nombre, Double precio, int stock, String descripcion, String genero) {
         this.nombre = nombre;
@@ -53,12 +51,4 @@ public abstract class Producto {
         this.genero = genero;
     }
 
-    public static double getDescuento(){
-        return descuento;
-    }
-
-    //Metodo Statico
-    public static double aplicarDescuento(double precio){
-        return precio - descuento;
-    }
 }
