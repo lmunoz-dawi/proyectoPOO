@@ -86,6 +86,18 @@ public class Main {
                         }
 
                         System.out.println("Total con descuento: " + (carrito.MostrarPrecio()-aplicarDescuento(cupon, carrito.MostrarPrecio())) + "€");
+                        System.out.println("Quieres procedor al pago?(Y/N)");
+                        String opcion2 = sc2.nextLine();
+
+                        if(opcion2.toUpperCase() == "Y" || opcion2.toUpperCase() == "YES"){
+                            System.out.print("Formas de pago: ");
+                            System.out.print("| MasterCard |");
+                            System.out.println("| Tarjeta Virtual |");
+                            
+                        } else if(opcion2.toUpperCase() == "N" || opcion2.toUpperCase() == "NO"){
+                            break;
+                        }
+
                         break;
                     }
                     break;
