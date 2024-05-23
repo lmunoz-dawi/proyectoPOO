@@ -8,6 +8,7 @@ public class Carrito{
     public List<Producto> productos ;
     private double precioTotal;
     public Carrito(){
+        this.precioTotal = precioTotal;
         this.productos = new ArrayList<>();
     }
 
@@ -22,6 +23,10 @@ public class Carrito{
 
     public void setPrecioTotal(double nuevoPrecioTotal){
         this.precioTotal = nuevoPrecioTotal;
+    }
+
+    public double getPrecioTotal() {
+        return precioTotal;
     }
 
     public void AgregarProducto(Producto producto){
