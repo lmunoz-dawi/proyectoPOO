@@ -84,20 +84,87 @@ public class Main {
                         } else {
                             System.out.println("Cupón no válido.");
                         }
+                        System.out.println("Total con descuento: " + carrito.getPrecioTotal() + "€");
 
-                        System.out.println("Total con descuento: " + (carrito.MostrarPrecio()-aplicarDescuento(cupon, carrito.MostrarPrecio())) + "€");
                         System.out.println("Quieres procedor al pago?(Y/N)");
                         String opcion2 = sc2.nextLine();
-
-                        if(opcion2.toUpperCase() == "Y" || opcion2.toUpperCase() == "YES"){
-                            System.out.print("Formas de pago: ");
-                            System.out.print("| MasterCard |");
-                            System.out.println("| Tarjeta Virtual |");
-                            
-                        } else if(opcion2.toUpperCase() == "N" || opcion2.toUpperCase() == "NO"){
+                        if(opcion2.toUpperCase().equals("Y") || opcion2.toUpperCase().equals("YES")){
+                            System.out.print("Formas de pago (1 o 2): ");
+                            System.out.print("| 1. MasterCard |");
+                            System.out.println("| 2. Tarjeta Virtual |");
+                            int opcion3 = sc2.nextInt();
+                            if (opcion3 == 1){
+                                System.out.print("Escribe tu numero de cuenta: ");
+                                String nTarjeta = sc2.nextLine();
+                                System.out.println("");
+                                System.out.print("Escribe el Titular de la tarjeta: ");
+                                String titular = sc2.nextLine();
+                                System.out.println("");
+                                System.out.print("Escribe fecha caducidad: ");
+                                String fecha = sc2.nextLine();
+                                System.out.println("");
+                                System.out.print("Escribe el codigo cvv: ");
+                                String cvv = sc2.nextLine();
+                                System.out.println("");
+                                System.out.println("Quieres guardar los datos de la tarjeta para futuras compras?(Y/N)");
+                                String opcion4 = sc2.nextLine();
+                                if(opcion4.toUpperCase().equals("Y") || opcion4.toUpperCase().equals("YES")){
+                                    TarjetaPago tarjetas = new TarjetaPago(nTarjeta, titular, fecha, cvv);
+                                    tarjetas.guardarTarjeta(tarjetas);
+                                    System.out.println("Tarjeta guardada");
+                                } else if (opcion4.toUpperCase().equals("N") || opcion4.toUpperCase().equals("NO")){
+                                    break;
+                                }
+                                System.out.println("Compra realizada con exito!");
+                                carrito.VaciarCarrito();
+                            } else  if (opcion3 == 2){
+                                System.out.println("Que metodo virutal quieres usar:");
+                                System.out.print("| 1. Paypal |");
+                                System.out.print("| 2. Revolut |");
+                                System.out.println("| 3. Klarna");
+                                int opcion5 = sc2.nextInt();
+                                if(opcion5 == 1 || opcion5 == 2){
+                                    System.out.print("Nombre Completo:");
+                                    String nCompleto = sc2.nextLine();
+                                    System.out.println("");
+                                    System.out.print("Correo Electronico: ");
+                                    String correo = sc2.nextLine();
+                                    System.out.println("");
+                                    System.out.println("Numero de telefono");
+                                    int nTelefono = sc2.nextInt();
+                                    System.out.println("");
+                                    System.out.println("Compra realizada con exito!");
+                                    carrito.VaciarCarrito();
+                                } else if (opcion5 == 3) {
+                                    System.out.println("Has elegido metodo de pago con financiacion");
+                                    System.out.println("Quieres financiar en 2, 3 o 4 meses?");
+                                    int meses = sc2.nextInt();
+                                    double temp = carrito.getPrecioTotal();
+                                    if(meses == 2){
+                                        temp /= 2;
+                                        System.out.println("Durante 2 meses tienes que pagar: "+ temp + "€ cada mes.");
+                                    } else if(meses == 3){
+                                        temp /= 3;
+                                        System.out.println("Durante 3 meses tienes que pagar: "+ temp + "€ cada mes.");
+                                    } else if(meses == 4){
+                                        temp /= 4;
+                                        System.out.println("Durante 4 meses tienes que pagar: "+ temp + "€ cada mes.");
+                                    }
+                                    System.out.println("Quieres continuar con el pago?(Y/N)");
+                                    Scanner sc3 = new Scanner(System.in);
+                                    String opcion6 = sc3.nextLine();
+                                    if(opcion6.toUpperCase().equals("Y") || opcion6.toUpperCase().equals("YES")){
+                                        System.out.println("Pago realizado con exito");
+                                        carrito.VaciarCarrito();
+                                    } else if(opcion6.toUpperCase().equals("N") || opcion6.toUpperCase().equals("NO")){
+                                        System.out.println("Pago cancelado");
+                                        break;
+                                    }
+                                }
+                            }
+                        } else if(opcion2.toUpperCase().equals("N") || opcion2.toUpperCase().equals("NO")){
                             break;
                         }
-
                         break;
                     }
                     break;
